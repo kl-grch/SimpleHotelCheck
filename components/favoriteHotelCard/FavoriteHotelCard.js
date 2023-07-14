@@ -1,3 +1,5 @@
+"use client";
+
 import "./favoriteHotelCard.scss";
 import dayjs from "dayjs";
 import "dayjs/locale/en";

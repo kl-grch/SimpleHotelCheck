@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/ru";
 import Image from "next/image";
 import FoundHotelCard from "../foundHotelCard/FoundHotelCard";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { endNumber } from "@/utils/endNumber";
 import useHotels from "@/hooks/useHotels";
 
@@ -32,8 +32,8 @@ export default function FoundHotels() {
 
   const { data, error, isLoading } = useHotels(location, checkIn, checkOut);
 
-  if (error) return <div>Error</div>;
-  if (isLoading) return <div>Loading</div>;
+  // if (error) return <div>Error</div>;
+  // if (isLoading) return <div>Loading</div>;
 
   const updateLocale = require("dayjs/plugin/updateLocale");
   dayjs.locale("ru");

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import "./header.scss";
 import Link from "next/link";
