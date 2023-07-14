@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "./Header.scss";
+import "./header.scss";
 import Link from "next/link";
 
 export default function Header() {
