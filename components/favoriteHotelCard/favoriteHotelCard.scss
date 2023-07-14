@@ -1,0 +1,148 @@
+.favorite-hotel-card {
+  width: 296px;
+  height: 74px;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    .header {
+      &__hotel-name {
+        color: #424242;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 22px;
+        letter-spacing: -0.408px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      &__favorite-status {
+        display: flex;
+        width: 21px;
+        height: 18px;
+        flex-shrink: 0;
+        align-items: start;
+      }
+    }
+  }
+  &__dates {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2px;
+    .dates {
+      &__date {
+        color: #878787;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: -0.408px;
+        white-space: nowrap;
+      }
+      &__dash {
+        width: 9px;
+        height: 1px;
+        flex-shrink: 0;
+        border-radius: 2px;
+        background: #c4c4c4;
+      }
+      &__count-days {
+        display: flex;
+        width: 56px;
+        flex-direction: column;
+        flex-shrink: 0;
+        color: #878787;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: -0.408px;
+      }
+    }
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .footer {
+      &__rate {
+        width: 99px;
+        height: 17px;
+        flex-shrink: 0;
+        &--stars1 {
+          svg {
+            path:nth-child(3) {
+              fill: #cdbc1e;
+            }
+          }
+        }
+        &--stars2 {
+          svg {
+            path:nth-child(3) {
+              fill: #cdbc1e;
+            }
+            path:nth-child(5) {
+              fill: #cdbc1e;
+            }
+          }
+        }
+        &--stars3 {
+          svg {
+            path:not(:nth-child(-n + 2)) {
+              fill: #cdbc1e;
+            }
+          }
+        }
+        &--stars4 {
+          svg {
+            path:not(:first-child) {
+              fill: #cdbc1e;
+            }
+          }
+        }
+        &--stars5 {
+          svg {
+            path {
+              fill: #cdbc1e;
+            }
+          }
+        }
+      }
+      &__price {
+        display: flex;
+        gap: 8px;
+        .price {
+          &__label {
+            display: flex;
+            width: 28px;
+            height: 18px;
+            flex-direction: column;
+            flex-shrink: 0;
+            color: #878787;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 22px;
+            letter-spacing: -0.408px;
+          }
+          &__value {
+            display: flex;
+            width: 74px;
+            height: 21px;
+            flex-direction: column;
+            flex-shrink: 0;
+            color: #424242;
+            text-align: right;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: -0.408px;
+          }
+        }
+      }
+    }
+  }
+}

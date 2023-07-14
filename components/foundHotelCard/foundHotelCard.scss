@@ -1,0 +1,192 @@
+.found-hotel-card {
+  display: flex;
+  padding: 16px 16px 16px 0px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  &__image {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+    position: relative;
+    .image {
+      &__home {
+        position: absolute;
+        top: 18%;
+        left: 22%;
+      }
+    }
+  }
+  &__info {
+    width: 100%;
+    .info {
+      &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header {
+          &__hotel-name {
+            display: flex;
+            width: 254px;
+            height: 21px;
+            flex-direction: column;
+            flex-shrink: 0;
+            color: #424242;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 22px;
+            letter-spacing: -0.408px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &:hover::after {
+              content: attr(hotelName);
+            }
+          }
+          &__favorite-status {
+            display: flex;
+            width: 21px;
+            height: 18px;
+            flex-shrink: 0;
+            cursor: pointer;
+            &--active {
+              svg {
+                path {
+                  fill: #e55858;
+                  stroke: #e55858;
+                }
+              }
+            }
+          }
+        }
+      }
+      &__dates {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        .dates {
+          &__date {
+            display: flex;
+            width: 92px;
+            height: 21px;
+            flex-direction: column;
+            flex-shrink: 0;
+            color: #878787;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: -0.408px;
+          }
+          &__dash {
+            width: 9px;
+            height: 1px;
+            flex-shrink: 0;
+            border-radius: 2px;
+            background: #c4c4c4;
+          }
+          &__count-days {
+            display: flex;
+            width: 56px;
+            flex-direction: column;
+            flex-shrink: 0;
+            color: #878787;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22px;
+            letter-spacing: -0.408px;
+          }
+        }
+      }
+      &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .footer {
+          &__rate {
+            width: 99px;
+            height: 17px;
+            flex-shrink: 0;
+            &--stars1 {
+              svg {
+                path:nth-child(3) {
+                  fill: #cdbc1e;
+                }
+              }
+            }
+            &--stars2 {
+              svg {
+                path:nth-child(3) {
+                  fill: #cdbc1e;
+                }
+                path:nth-child(5) {
+                  fill: #cdbc1e;
+                }
+              }
+            }
+            &--stars3 {
+              svg {
+                path:not(:nth-child(-n + 2)) {
+                  fill: #cdbc1e;
+                }
+              }
+            }
+            &--stars4 {
+              svg {
+                path:not(:first-child) {
+                  fill: #cdbc1e;
+                }
+              }
+            }
+            &--stars5 {
+              svg {
+                path {
+                  fill: #cdbc1e;
+                }
+              }
+            }
+          }
+          &__price {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            .price {
+              &__label {
+                display: flex;
+                width: 28px;
+                height: 18px;
+                flex-direction: column;
+                flex-shrink: 0;
+                color: #878787;
+                font-size: 11px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 22px;
+                letter-spacing: -0.408px;
+              }
+              &__value {
+                display: flex;
+                width: 74px;
+                height: 21px;
+                flex-direction: column;
+                flex-shrink: 0;
+                color: #424242;
+                text-align: right;
+                font-size: 17px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 22px;
+                letter-spacing: -0.408px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.home {
+  display: flex;
+  gap: 24px;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 24px;
+}
