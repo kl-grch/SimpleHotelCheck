@@ -30,10 +30,10 @@ export default function FoundHotels() {
     }
   }
 
-  const { data, error, isLoading } = useHotels(location, checkIn, checkOut);
+  const { data, error } = useHotels(location, checkIn, checkOut);
 
-  // if (error) return <div>Error</div>;
-  // if (isLoading) return <div>Loading</div>;
+  if (error) return <div>Error</div>;
+  if (!data) return <div>Loading</div>;
 
   const updateLocale = require("dayjs/plugin/updateLocale");
   dayjs.locale("ru");
