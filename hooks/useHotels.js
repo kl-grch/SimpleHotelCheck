@@ -13,11 +13,10 @@ export default function useHotels(location, checkIn, checkOut) {
       .then((res) => res.json())
       .then((data) => dispatch(getAllHotels(data)));
 
-  const { data, error } = useSWR(url, fetcher);
+  const { data, error } = useSWR(url, fetcher, { suspense: true });
 
   return {
     data,
     error,
   };
 }
-

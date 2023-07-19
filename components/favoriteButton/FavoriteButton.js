@@ -2,15 +2,20 @@
 
 import "./favoriteButton.scss";
 import clsx from "clsx";
-import { useState } from "react";
 
-export default function FavoriteButton({ label }) {
-  const [isActive, setIsActive] = useState(false);
+export default function FavoriteButton({
+  label,
+  onClick,
+  isActive,
+  isActiveDown,
+}) {
   return (
     <div
       className={clsx("favorite-button", {
         "favorite-button--active": isActive,
+        "favorite-button--active-down": isActiveDown,
       })}
+      onClick={onClick}
     >
       <div className="favorite-button__label">{label}</div>
       <div className="favorite-button__switches">

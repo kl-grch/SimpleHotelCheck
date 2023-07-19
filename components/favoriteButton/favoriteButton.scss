@@ -10,6 +10,8 @@
   border-radius: 4px;
   border: 1px solid #e5e5e5;
   background: #fff;
+  user-select: none;
+  cursor: pointer;
   &__label {
     color: #99a0a3;
     font-size: 14px;
@@ -28,6 +30,34 @@
     .favorite-button {
       &__label {
         color: #41522e;
+      }
+      &__switches {
+        svg {
+          path:first-child {
+            fill: #41522e;
+            fill-opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  &--active-down {
+    border: 1px solid #41522e;
+    .favorite-button {
+      &__label {
+        color: #41522e;
+      }
+      &__switches {
+        svg {
+          path:last-child {
+            fill: #41522e;
+            fill-opacity: 1;
+          }
+          path:first-child {
+            fill: black;
+            fill-opacity: 0.3;
+          }
+        }
       }
     }
   }

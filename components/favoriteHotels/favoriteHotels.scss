@@ -23,6 +23,7 @@
   &__list {
     display: flex;
     flex-direction: column;
+    width: 100%;
     .list {
       &__item {
         border-bottom: 1px solid rgba(135, 135, 135, 0.2);
@@ -34,6 +35,11 @@
       }
       &__item:first-child {
         padding-top: 0;
+      }
+      &__no-items {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }
