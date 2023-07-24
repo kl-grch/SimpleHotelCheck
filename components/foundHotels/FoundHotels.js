@@ -1,7 +1,6 @@
 "use client";
 
 import "./foundHotels.scss";
-
 import dayjs from "dayjs";
 import "dayjs/locale/ru";
 import Image from "next/image";
@@ -30,10 +29,9 @@ export default function FoundHotels() {
     }
   }
 
-  const { data, error } = useHotels(location, checkIn, checkOut);
+  const { data, isLoading } = useHotels(location, checkIn, checkOut);
 
-  if (error) return <div>Error</div>;
-  if (!data) return <div>Loading</div>;
+  // if (!data) return <div>Loading</div>;
 
   const updateLocale = require("dayjs/plugin/updateLocale");
   dayjs.locale("ru");
@@ -87,7 +85,13 @@ export default function FoundHotels() {
         {images.map((item, i) => {
           return (
             <div key={i} className="images__item">
-              <Image src={item} alt="img" width={164} height={149} />
+              <Image
+                src={item}
+                alt="img"
+                width={164}
+                height={149}
+                priority={true}
+              />
             </div>
           );
         })}
@@ -99,21 +103,25 @@ export default function FoundHotels() {
           {endNumber(favoriteHotels?.length, "отелей", "отель", "отеля")}
         </div>
         <div className="list__items">
-          {foundHotels.map((item) => {
-            return (
-              <div key={item.hotelId} className="items__item">
-                <FoundHotelCard
-                  hotelName={item.hotelName}
-                  stars={item.stars}
-                  priceFrom={item.priceFrom}
-                  countDays={countDays}
-                  checkIn={checkIn}
-                  hotelId={item.hotelId}
-                  favoriteStatus={getFavoriteStatus(item.hotelId)}
-                />
-              </div>
-            );
-          })}
+          {isLoading ? (
+            <div className="items__loading">Loading...</div>
+          ) : (
+            foundHotels.map((item) => {
+              return (
+                <div key={item.hotelId} className="items__item">
+                  <FoundHotelCard
+                    hotelName={item.hotelName}
+                    stars={item.stars}
+                    priceFrom={item.priceFrom}
+                    countDays={countDays}
+                    checkIn={checkIn}
+                    hotelId={item.hotelId}
+                    favoriteStatus={getFavoriteStatus(item.hotelId)}
+                  />
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     </div>

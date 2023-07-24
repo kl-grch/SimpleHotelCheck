@@ -1,7 +1,7 @@
 "use client";
 
-import Button from "../button/Button";
 import "./searchForm.scss";
+import Button from "../button/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { setSearchForm } from "./searchFormSlice";
 import { Formik, Form, Field } from "formik";

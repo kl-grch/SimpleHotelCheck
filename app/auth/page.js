@@ -1,11 +1,10 @@
-"use client";
-
+import AuthForm from "@/components/authForm/AuthForm";
 import "./page.scss";
 
 export default function Authorization() {
   return (
     <div className="wrapper">
-      <div className="authorization"> Form authorization</div>
+      <AuthForm />
     </div>
   );
 }

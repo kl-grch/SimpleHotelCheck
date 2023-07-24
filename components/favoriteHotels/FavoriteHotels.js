@@ -1,45 +1,51 @@
 "use client";
 
+import "./favoriteHotels.scss";
 import { useSelector, useDispatch } from "react-redux";
 import FavoriteButton from "../favoriteButton/FavoriteButton";
 import FavoriteHotelCard from "../favoriteHotelCard/FavoriteHotelCard";
-import "./favoriteHotels.scss";
 import {
   sortFavoriteRate,
   sortFavoriteRateDown,
   sortFavoritePrice,
   sortFavoritePriceDown,
+  clearFavoriteFilters,
 } from "./favoriteHotelsSlice";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 export default function FavoriteHotels() {
-  const { favoriteHotels, filterFavoriteRate, filterFavoritePrice } =
-    useSelector((state) => state.favoriteHotels);
+  const {
+    favoriteHotels,
+    filterFavoriteRate,
+    filterFavoritePrice,
+    filterFavoriteRateDown,
+    filterFavoritePriceDown,
+  } = useSelector((state) => state.favoriteHotels);
   const dispatch = useDispatch();
-  const [toggleRate, setToggleRate] = useState(false);
-  const [togglePrice, setTogglePrice] = useState(false);
-  const [isActiveDownRate, setIsActiveDownRate] = useState(false);
-  const [isActiveDownPrice, setIsActiveDownPrice] = useState(false);
 
   const handleFilterRate = () => {
-    setToggleRate(!toggleRate);
-    if (favoriteHotels.length > 1 && toggleRate === false) {
-      return dispatch(sortFavoriteRate()) && setIsActiveDownRate(false);
-    } else if (favoriteHotels.length > 1 && toggleRate === true) {
-      return dispatch(sortFavoriteRateDown()) && setIsActiveDownRate(true);
+    if (favoriteHotels.length > 1 && filterFavoriteRate === false) {
+      return dispatch(sortFavoriteRate());
+    } else if (favoriteHotels.length > 1 && filterFavoriteRateDown === false) {
+      return dispatch(sortFavoriteRateDown());
     }
     return false;
   };
 
   const handleFilterPrice = () => {
-    setTogglePrice(!togglePrice);
-    if (favoriteHotels.length > 1 && togglePrice === false) {
-      return dispatch(sortFavoritePrice()) && setIsActiveDownPrice(false);
-    } else if (favoriteHotels.length > 1 && togglePrice === true) {
-      return dispatch(sortFavoritePriceDown()) && setIsActiveDownPrice(true);
+    if (favoriteHotels.length > 1 && filterFavoritePrice === false) {
+      return dispatch(sortFavoritePrice());
+    } else if (favoriteHotels.length > 1 && filterFavoritePriceDown === false) {
+      return dispatch(sortFavoritePriceDown());
     }
     return false;
   };
+
+  useEffect(() => {
+    if (favoriteHotels.length < 1) {
+      dispatch(clearFavoriteFilters());
+    }
+  }, [dispatch, favoriteHotels.length]);
 
   return (
     <div className="favorite-hotels">
@@ -49,13 +55,13 @@ export default function FavoriteHotels() {
           label="Рейтинг"
           onClick={handleFilterRate}
           isActive={filterFavoriteRate}
-          isActiveDown={isActiveDownRate}
+          isActiveDown={filterFavoriteRateDown}
         />
         <FavoriteButton
           label="Цена"
           onClick={handleFilterPrice}
           isActive={filterFavoritePrice}
-          isActiveDown={isActiveDownPrice}
+          isActiveDown={filterFavoritePriceDown}
         />
       </div>
       <div className="favorite-hotels__list">

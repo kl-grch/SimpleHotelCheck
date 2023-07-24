@@ -1,7 +1,7 @@
 .wrapper {
-  background: url("/images/background_auth.png") no-repeat 100% / cover;
-  .authorization {
-    min-height: 100vh;
-    
-  }
+  background: url("/images/background_auth.jpeg") no-repeat 100% / cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -3,9 +3,8 @@
 import "./favoriteHotelCard.scss";
 import dayjs from "dayjs";
 import "dayjs/locale/en";
-
 import clsx from "clsx";
-import { numberWithSpaces } from "../../utils/numberWithSpaces";
+import { numberWithSpaces } from "@/utils/numberWithSpaces";
 import { endNumber } from "@/utils/endNumber";
 import {
   addFavorite,
@@ -20,7 +19,6 @@ export default function FavoriteHotelCard({
   countDays,
   checkIn,
   hotelId,
-  favoriteStatus,
 }) {
   dayjs.locale("en");
   const dispatch = useDispatch();

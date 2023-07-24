@@ -99,6 +99,12 @@
         align-self: stretch;
         padding-top: 8px;
         .items {
+          &__loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+          }
           &__item {
             width: 100%;
           }

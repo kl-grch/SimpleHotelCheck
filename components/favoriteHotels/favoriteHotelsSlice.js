@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   filterFavoriteRate: false,
+  filterFavoriteRateDown: false,
   filterFavoritePrice: false,
+  filterFavoritePriceDown: false,
   favoriteHotels: [],
 };
 
@@ -21,7 +23,9 @@ const favoriteHotelsSlice = createSlice({
     },
     sortFavoriteRate: (state) => {
       state.filterFavoriteRate = true;
+      state.filterFavoriteRateDown = false;
       state.filterFavoritePrice = false;
+      state.filterFavoritePriceDown = false;
       state.favoriteHotels = state.favoriteHotels.sort(function (a, b) {
         if (a.stars < b.stars) {
           return 1;
@@ -33,8 +37,10 @@ const favoriteHotelsSlice = createSlice({
       });
     },
     sortFavoriteRateDown: (state) => {
-      state.filterFavoriteRate = true;
+      state.filterFavoriteRate = false;
+      state.filterFavoriteRateDown = true;
       state.filterFavoritePrice = false;
+      state.filterFavoritePriceDown = false;
       state.favoriteHotels = state.favoriteHotels.sort(function (a, b) {
         if (a.stars < b.stars) {
           return -1;
@@ -47,8 +53,10 @@ const favoriteHotelsSlice = createSlice({
     },
 
     sortFavoritePrice: (state) => {
-      state.filterFavoritePrice = true;
       state.filterFavoriteRate = false;
+      state.filterFavoriteRateDown = false;
+      state.filterFavoritePrice = true;
+      state.filterFavoritePriceDown = false;
       state.favoriteHotels = state.favoriteHotels.sort(function (a, b) {
         if (a.priceFrom > b.priceFrom) {
           return 1;
@@ -61,8 +69,10 @@ const favoriteHotelsSlice = createSlice({
     },
 
     sortFavoritePriceDown: (state) => {
-      state.filterFavoritePrice = true;
       state.filterFavoriteRate = false;
+      state.filterFavoriteRateDown = false;
+      state.filterFavoritePrice = false;
+      state.filterFavoritePriceDown = true;
       state.favoriteHotels = state.favoriteHotels.sort(function (a, b) {
         if (a.priceFrom > b.priceFrom) {
           return -1;
@@ -73,12 +83,11 @@ const favoriteHotelsSlice = createSlice({
         return 0;
       });
     },
-
-    setFilterFavoriteStatusRate: (state, action) => {
-      state.filterFavoriteRate = action.payload;
-    },
-    setFilterFavoriteStatusPrice: (state, action) => {
-      state.filterFavoritePrice = action.payload;
+    clearFavoriteFilters: (state) => {
+      state.filterFavoriteRate = false;
+      state.filterFavoriteRateDown = false;
+      state.filterFavoritePrice = false;
+      state.filterFavoritePriceDown = false;
     },
   },
 });
@@ -94,6 +103,5 @@ export const {
   sortFavoriteRateDown,
   sortFavoritePrice,
   sortFavoritePriceDown,
-  setFilterFavoriteStatusRate,
-  setFilterFavoriteStatusPrice,
+  clearFavoriteFilters,
 } = actions;
