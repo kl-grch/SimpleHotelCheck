@@ -17,19 +17,6 @@ export default function useHotels(location, checkIn, checkOut) {
     url,
     fetcher,
     { suspense: true },
-    {
-      fallbackData: [
-        {
-          hotelName: "Name",
-          stars: 5,
-          priceFrom: 1000,
-          countDays: 1,
-          checkIn: "2023-12-12",
-          hotelId: 1,
-          favoriteStatus: true,
-        },
-      ],
-    }
   );
 
   return {
