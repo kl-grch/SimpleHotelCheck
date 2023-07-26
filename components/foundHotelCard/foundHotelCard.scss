@@ -27,11 +27,11 @@
         align-items: center;
         .header {
           &__hotel-name {
-            display: flex;
+            // display: flex;
             width: 254px;
             height: 21px;
-            flex-direction: column;
-            flex-shrink: 0;
+            // flex-direction: column;
+            // flex-shrink: 0;
             color: #424242;
             font-size: 17px;
             font-style: normal;
@@ -188,5 +188,11 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .found-hotel-card__image {
+    display: none;
   }
 }

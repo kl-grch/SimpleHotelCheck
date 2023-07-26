@@ -1,6 +1,7 @@
 .favorite-hotels {
   display: flex;
-  width: 360px;
+  width: 100%;
+  min-width: 360px;
   padding: 32px;
   flex-direction: column;
   align-items: flex-start;
@@ -42,5 +43,11 @@
         justify-content: center;
       }
     }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .found-hotel-card__image {
+    display: none;
   }
 }

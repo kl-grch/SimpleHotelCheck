@@ -1,5 +1,6 @@
 .favorite-hotel-card {
-  width: 296px;
+  width: 100%;
+  min-width: 296px;
   height: 74px;
   &__header {
     display: flex;

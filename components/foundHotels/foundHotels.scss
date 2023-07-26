@@ -47,11 +47,14 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
   }
   &__images {
-    max-width: 600px;
+    // max-width: 600px;
     height: 149px;
     display: flex;
     align-items: center;
@@ -113,6 +116,21 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 575.98px) { 
+  .logout__label {
+    display: none;
+  }
+ }
+
+@media (max-width: 767.98px) {
+  .found-hotels {
+    &__header {
+      flex-direction: column;
+      align-items: start;
     }
   }
 }

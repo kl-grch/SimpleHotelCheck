@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setAuthorizationStatus } from "@/components/authForm/authFormSlice";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default function Home() {
   const router = useRouter();
@@ -23,20 +24,25 @@ export default function Home() {
       dispatch(setAuthorizationStatus(false));
       router.push("/auth");
     }
-  }, []);
+  }, [dispatch, router]);
 
   return (
     <>
-      <div className="container-fluid">
+      <Container fluid="xxl">
         <Header />
-      </div>
-      <div className="home">
-        <div className="aside">
-          <SearchForm />
-          <FavoriteHotels />
-        </div>
-        <FoundHotels />
-      </div>
+      </Container>
+
+      <Container>
+        <Row className="home">
+          <Col xxl={4} className="aside">
+            <SearchForm />
+            <FavoriteHotels />
+          </Col>
+          <Col xxl="auto">
+            <FoundHotels />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
