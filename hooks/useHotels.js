@@ -16,7 +16,7 @@ export default function useHotels(location, checkIn, checkOut) {
   const { data, error, isLoading } = useSWR(
     url,
     fetcher,
-    // { suspense: true },
+    { suspense: true },
     {
       fallbackData: [
         {

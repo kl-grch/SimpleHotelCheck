@@ -29,9 +29,7 @@ export default function FoundHotels() {
     }
   }
 
-  const { data, isLoading } = useHotels(location, checkIn, checkOut);
-
-  // if (!data) return <div>Loading</div>;
+  const { data } = useHotels(location, checkIn, checkOut);
 
   const updateLocale = require("dayjs/plugin/updateLocale");
   dayjs.locale("ru");
@@ -103,7 +101,7 @@ export default function FoundHotels() {
           {endNumber(favoriteHotels?.length, "отелей", "отель", "отеля")}
         </div>
         <div className="list__items">
-          {isLoading ? (
+          {!data ? (
             <div className="items__loading">Loading...</div>
           ) : (
             foundHotels.map((item) => {
