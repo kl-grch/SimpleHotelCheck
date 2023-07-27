@@ -9,8 +9,9 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "Simple Hotel Check",
-  description: "Поиск отелей",
+  title: "Simple Hotel Check - поиск отелей",
+  description:
+    "На нашем сайте вы сможете найти информацию о ценах на нужный вам отель 🏨",
   icons: [
     {
       rel: "icon",
@@ -28,6 +29,26 @@ export const metadata = {
       rel: "apple-touch-icon",
       sizes: "180x180",
       url: "/apple-touch-icon.png",
+    },
+  ],
+  openGraph: [
+    {
+      title: "Simple Hotel Check - поиск отелей",
+      description:
+        "На нашем сайте вы сможете найти информацию о ценах на нужный вам отель 🏨",
+      type: "website",
+      url: "https://simple-hotel-check-ivory.vercel.app/",
+      images: ["/images/openGraph.jpg"],
+    },
+  ],
+  twitter: [
+    {
+      card: "summary_large_image",
+      url: "https://simple-hotel-check-ivory.vercel.app/",
+      title: "Simple Hotel Check - поиск отелей",
+      description:
+        "На нашем сайте вы сможете найти информацию о ценах на нужный вам отель 🏨",
+      images: ["/images/openGraph.jpg"],
     },
   ],
 };
