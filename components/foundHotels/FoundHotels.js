@@ -8,6 +8,7 @@ import FoundHotelCard from "../foundHotelCard/FoundHotelCard";
 import { useSelector } from "react-redux";
 import { endNumber } from "@/utils/endNumber";
 import useHotels from "@/hooks/useHotels";
+import { Skeleton } from "@mui/material";
 
 const images = [
   "/images/1.png",
@@ -73,10 +74,16 @@ export default function FoundHotels() {
               />
             </svg>
           </div>
-          <div className="location__city">{location}</div>
+          <div className="location__city">
+            {!data ? <Skeleton animation="wave" width="100%" /> : location}
+          </div>
         </div>
         <div className="header__date">
-          {dayjs(checkIn).format("DD MMMM YYYY")}
+          {!data ? (
+            <Skeleton animation="wave" width={100} height="100%" />
+          ) : (
+            dayjs(checkIn).format("DD MMMM YYYY")
+          )}
         </div>
       </div>
       <div className="found-hotels__images">
@@ -102,7 +109,8 @@ export default function FoundHotels() {
         </div>
         <div className="list__items">
           {!data ? (
-            <div className="items__loading">Loading...</div>
+            // <div className="items__loading">Loading...</div>
+            <Skeleton animation="wave" width="100%" height={100} />
           ) : (
             foundHotels.map((item) => {
               return (
