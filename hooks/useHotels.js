@@ -5,7 +5,7 @@ import { getAllHotels } from "../components/foundHotels/foundHotelsSlise";
 export default function useHotels(location, checkIn, checkOut) {
 
   const dispatch = useDispatch();
-  const url = `http://engine.hotellook.com/api/v2/cache.json?location=${location}&currency=rub&checkIn=${checkIn}&checkOut=${checkOut}&limit=10`;
+  const url = `https://engine.hotellook.com/api/v2/cache.json?location=${location}&currency=rub&checkIn=${checkIn}&checkOut=${checkOut}&limit=10`;
 
   const fetcher = (...args) =>
     fetch(...args)
