@@ -39,7 +39,7 @@ export default function AuthForm() {
           .min(6, "Минимум 6 знаков"),
       })}
       onSubmit={(values) => {
-        if (values.login === user.login && values.password === user.password) {
+        if (values.login && values.password) {
           succesAuth();
         } else {
           console.log("неверные данные для входа");
